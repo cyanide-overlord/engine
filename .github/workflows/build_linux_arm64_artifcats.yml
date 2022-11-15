@@ -1,7 +1,7 @@
 name: Build linux-arm64 artifacts
 on: [push]
 jobs:
-  check-bats-version:
+  build-arm64-artifacts:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -10,7 +10,7 @@ jobs:
       - name: Setup depot tools
         run: |
                git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-               export PATH="$PATH:`pwd`/depot_tools"
+               export PATH="$PATH:{$HOME}/depot_tools"
 
       - name: Sync 
         run: |
