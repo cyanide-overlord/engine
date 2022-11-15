@@ -20,14 +20,11 @@ jobs:
                git remote add upstream git@github.com:flutter/engine.git
                cd ..
                ls
-               sudo ./build/install-build-deps-android.sh
-               sudo ./build/install-build-deps.sh
-               sudo ./flutter/build/install-build-deps-linux-desktop.sh
-
+             
       - name: Build artifacts
         run: |
                set -ex
-               cd ~/dev/engine/src/flutter
+               cd engine/src/flutter
                git fetch upstream
                git rebase upstream/main
                gclient sync
