@@ -24,6 +24,8 @@ jobs:
              
       - name: Build artifacts
         run: |
+               git config --global user.email "salymngampo7@gmail.com"
+               git config --global user.name "cyandie-overlord"
                set -ex
                cd engine/src/flutter
                git fetch upstream
