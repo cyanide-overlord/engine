@@ -26,5 +26,20 @@ jobs:
               sudo ./build/install-build-deps.sh
               sudo ./flutter/build/install-build-deps-linux-desktop.sh
 
+       - run: |
+set -ex
 
+cd ~/dev/engine/src/flutter
+git fetch upstream
+git rebase upstream/main
+gclient sync
+cd ..
+
+flutter/tools/gn --unoptimized --runtime-mode=debug
+flutter/tools/gn --android --unoptimized --runtime-mode=debug
+flutter/tools/gn --android --runtime-mode=profile
+flutter/tools/gn --android --runtime-mode=release
+
+cd out
+find . -mindepth 1 -maxdepth 1 -type d | xargs -n 1 sh -c 'ninja -C $0 || exit 255'
 
