@@ -20,6 +20,7 @@ jobs:
                git remote add upstream git@github.com:flutter/engine.git
                cd ..
                ls
+               pwd
              
       - name: Build artifacts
         run: |
