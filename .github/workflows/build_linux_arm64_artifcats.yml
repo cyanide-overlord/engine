@@ -26,7 +26,7 @@ jobs:
               sudo ./build/install-build-deps.sh
               sudo ./flutter/build/install-build-deps-linux-desktop.sh
        - name: Run 
-       - run: |
+         run: |
                 set -ex
                 cd ~/dev/engine/src/flutter
                 git fetch upstream
