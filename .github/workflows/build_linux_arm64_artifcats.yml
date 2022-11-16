@@ -33,7 +33,8 @@ jobs:
                gclient sync
                cd ..
 
-               flutter/tools/gn --unoptimized --runtime-mode=debug
+               flutter/tools/gn --unoptimized --build-web-sdk --prebuilt-dart-sdk
+               
                ls
                cd out
                echo "*************"
